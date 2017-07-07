@@ -1,6 +1,6 @@
 version: '2.1'
 
-srervices:
+services:
 
   users-db:
     container_name: users-db
