@@ -141,10 +141,9 @@ class TestUserService(BaseTestCase):
             data = json.loads(response.data.decode())
             self.assertEqual(response.status_code, 200)
             self.assertEqual(len(data['data']['users']),2)
-            assertEqual('created_at' in data['data']['users'][0])
-            assertEqual('created_at' in data['data']['users'][1])
+            self.assertTrue('created_at' in data['data']['users'][0])
+            self.assertTrue('created_at' in data['data']['users'][1])
             self.assertIn('michael', data['data']['users'][0]['username'])
-            self.assertIn(
-                'michael@realpython.com', data['data']['users'][0]['email'])
+            self.assertIn('michael@realpython.com', data['data']['users'][0]['email'])
             self.assertIn('fletcher@realpython.com', data['data']['users'][1]['email'])
             self.assertIn('success', data['status'])
